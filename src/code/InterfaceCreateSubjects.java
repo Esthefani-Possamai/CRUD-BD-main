@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
+import java.sql.ResultSet;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -47,15 +48,22 @@ public class InterfaceCreateSubjects extends JFrame{
 	private int minhaVariavel;
 	private int code;
 	
+	Subjects subjects = null;
+	
 	public InterfaceCreateSubjects (int valor, int code) {
 		minhaVariavel = valor;
 		code = code;
-		setSize(900,700);
+		
+		setSize(510, 415);
 		if (minhaVariavel == 1) {
-			
-			setTitle("Inserir usuário ");
-		} else {
-			setTitle("Inserir disciplina");
+			setTitle("Inserir disciplina ");
+		} else if (minhaVariavel == 2){
+			setTitle("Atualizar disciplina");
+			//PARA ATUALIZAR USUÁRIO
+			 Banco banco = new Banco();
+			Connection conn = banco.getConexao();
+			SubjectsBanco sBanco = new SubjectsBanco();
+			subjects = sBanco.findSubjects(conn, code);
 
 		}
 		// Obtém o painel de conteúdo do JFrame
@@ -83,80 +91,80 @@ public class InterfaceCreateSubjects extends JFrame{
 		Border matteBorder = BorderFactory.createMatteBorder(borderWidth, borderWidth, borderWidth, borderWidth, borderColor);
 		
 		if (minhaVariavel == 1) {
-		Border titledBorder = BorderFactory.createTitledBorder(matteBorder, "Usuários");
+		Border titledBorder = BorderFactory.createTitledBorder(matteBorder, "Disciplinas");
 		((TitledBorder) titledBorder).setTitleColor(borderColor);
-		Border titledBorder4 = BorderFactory.createTitledBorder(matteBorder, "Criar usuário");
+		Border titledBorder4 = BorderFactory.createTitledBorder(matteBorder, "Criar disciplina");
 		((TitledBorder) titledBorder4).setTitleColor(borderColor);
 		painel4.setBorder(titledBorder4);
 		((TitledBorder) titledBorder4).setTitleFont(fontelabels);
 
 		}
-		else {
+		else if (minhaVariavel == 2){
 			Border titledBorder = BorderFactory.createTitledBorder(matteBorder, "Disciplinas");
 			((TitledBorder) titledBorder).setTitleColor(borderColor);
-			Border titledBorder4 = BorderFactory.createTitledBorder(matteBorder, "Criar disciplina");
+			Border titledBorder4 = BorderFactory.createTitledBorder(matteBorder, "Atualizar disciplina");
 			((TitledBorder) titledBorder4).setTitleColor(borderColor);
 			painel4.setBorder(titledBorder4);
 			((TitledBorder) titledBorder4).setTitleFont(fontelabels);
 
 		}
-		painel4.setBounds(20,20,500,500);
+		painel4.setBounds(20,20,455,335);
 		getContentPane().add(painel4);
 		
 		lnamesubject = new JLabel("Nome:");
-		lnamesubject.setBounds(20,40,100,25);
+		lnamesubject.setBounds(20,40,110,25);
 		lnamesubject.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(lnamesubject);
 		namesubject = new JTextArea();
-		namesubject.setBounds(120,40,250,25);
+		namesubject.setBounds(140,40,280,25);
 		painel4.add(namesubject);
 		
 		lcodesubject = new JLabel("Código:");
-		lcodesubject.setBounds(20,75,100,25);
+		lcodesubject.setBounds(20,75,110,25);
 		lcodesubject.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(lcodesubject);
 		codesubject = new JTextArea();
-		codesubject.setBounds(120,75,250,25);
+		codesubject.setBounds(140,75,280,25);
 		painel4.add(codesubject);
 		
 		ldescription = new JLabel("Descrição:");
-		ldescription.setBounds(20,110,100,25);
+		ldescription.setBounds(20,110,110,25);
 		ldescription.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(ldescription);
 		description = new JTextArea();
-		description.setBounds(120,110,250,25);
+		description.setBounds(140,110,280,25);
 		painel4.add(description);
 		
 		lteachingplan = new JLabel("Plano de ensino:");
-		lteachingplan.setBounds(0,145,100,25);
+		lteachingplan.setBounds(20,145,110,25);
 		lteachingplan.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(lteachingplan);
 		teachingplan = new JTextArea();
-		teachingplan.setBounds(120,145,250,25);
+		teachingplan.setBounds(140,145,280,25);
 		painel4.add(teachingplan);
 		
 		lcredits = new JLabel("Créditos:");
-		lcredits.setBounds(20,180,100,25);
+		lcredits.setBounds(20,180,110,25);
 		lcredits.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(lcredits);
 		credits2 = new JTextArea();
-		credits2.setBounds(120,180,250,25);
+		credits2.setBounds(140,180,280,25);
 		painel4.add(credits2);
 		
-		ldurationsid = new JLabel("ID da duração :");
-		ldurationsid.setBounds(0,215,100,25);
+		ldurationsid = new JLabel("ID Duração :");
+		ldurationsid.setBounds(20,215,110,25);
 		ldurationsid.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(ldurationsid);
 		durationsid = new JTextArea();
-		durationsid.setBounds(120,215,250,25);
+		durationsid.setBounds(140,215,280,25);
 		painel4.add(durationsid);
 		
-		lgradetoaproveid = new JLabel("ID da gradetoaproveid de aprovação:");
-		lgradetoaproveid.setBounds(0,275,150,25);
+		lgradetoaproveid = new JLabel("ID Nota de aprovação:");
+		lgradetoaproveid.setBounds(0,250,130,25);
 		lgradetoaproveid.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(lgradetoaproveid);
 		gradetoaproveid = new JTextArea();
-		gradetoaproveid.setBounds(120,275,250,25);
+		gradetoaproveid.setBounds(140,250,280,25);
 		painel4.add(gradetoaproveid);
 		
 		cadsubject = new JButton();
@@ -167,13 +175,24 @@ public class InterfaceCreateSubjects extends JFrame{
 		}
 		cadsubject.setHorizontalAlignment(SwingConstants.CENTER);
 		cadsubject.setFont(fontelabels);
-		cadsubject.setBounds(180, 290, 150, 25);
+		cadsubject.setBounds(260, 285, 150, 25);
 		cadsubject.setBackground(background);
 		cadsubject.setForeground( resultcolor );
 		Border customBorderButton = BorderFactory.createLineBorder(resultcolor, 2 );
 		cadsubject.setBorder(customBorderButton);
 		cadsubject.setFocusPainted(false);
 		painel4.add(cadsubject);
+		
+		if (minhaVariavel == 2) {
+			 namesubject.setText(subjects.name);
+			 codesubject.setText(String.valueOf(subjects.cod_subject));
+			description.setText(subjects.descripition);
+			teachingplan.setText(subjects.teaching_plan);
+			credits2.setText(String.valueOf(subjects.credits));
+			durationsid.setText(String.valueOf(subjects.durations_id));
+			gradetoaproveid.setText(String.valueOf(subjects.grade_to_aprove_id));
+			codesubject.setEditable(false);
+		}
 		
 		cadsubject.addMouseListener(new MouseAdapter() {
 			@Override
@@ -186,9 +205,6 @@ public class InterfaceCreateSubjects extends JFrame{
 				int credits = Integer.parseInt(credits2.getText());
 				int durations_id = Integer.parseInt(durationsid.getText());
 				int  grade_to_aprove_id =  Integer.parseInt(gradetoaproveid.getText());
-				
-		
-				
 				
 					if (minhaVariavel == 1) {
 						//PARA ADICIONAR NOVA DISCIPLINA
@@ -229,7 +245,7 @@ public class InterfaceCreateSubjects extends JFrame{
 		voltar.setText("Voltar");
 		voltar.setHorizontalAlignment(SwingConstants.CENTER);
 		voltar.setFont(fontelabels);
-		voltar.setBounds(60, 290, 100, 25);
+		voltar.setBounds(150, 285, 100, 25);
 		voltar.setBackground(background);
 		voltar.setForeground( resultcolor );
 		voltar.setBorder(customBorderButton);

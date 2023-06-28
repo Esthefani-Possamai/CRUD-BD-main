@@ -18,7 +18,6 @@ public class SubjectsBanco {
 		PreparedStatement ps = null;
 		String query = "INSERT INTO subjects (name, cod_subject, descripition, durations_id, teaching_plan, credits, grade_to_aprove_id)"
 				+ "Values (?,?,?,?,?,?,?)";
-		
 		try {
 			ps = conexao.prepareStatement(query);
 			ps.setString(1,  Subjects.name);
@@ -74,9 +73,9 @@ public class SubjectsBanco {
 		return SubjectsList;
 		}
 	
-	public Subjects findSubjects(Connection conexao, int id) {
+	public Subjects findSubjects(Connection conexao, int code) {
 	    Statement st = null;
-	    String query = "SELECT * FROM users WHERE cod_person = " + id;
+	    String query = "SELECT * FROM student_management.subjects WHERE cod_subject = " + code;
 	    Subjects Subjects = new Subjects();
 
 	    try {
@@ -87,11 +86,11 @@ public class SubjectsBanco {
 	        	Subjects.id = ((ResultSet) rs).getInt("id");
 				Subjects.name = ((ResultSet) rs).getString("name");
 				Subjects.cod_subject = ((ResultSet) rs).getInt("cod_subject");
-				Subjects.descripition = ((ResultSet) rs).getString("description");
+				Subjects.descripition = ((ResultSet) rs).getString("descripition");
 				Subjects.durations_id = ((ResultSet) rs).getInt("durations_id");
 				Subjects.teaching_plan = ((ResultSet) rs).getString("teaching_plan");
 				Subjects.credits = ((ResultSet) rs).getInt("credits");
-				Subjects.grade_to_aprove_id = ((ResultSet) rs).getInt("credits");
+				Subjects.grade_to_aprove_id = ((ResultSet) rs).getInt("grade_to_aprove_id");
 
 	        }
 	    } catch (Exception e) {

@@ -29,19 +29,17 @@ public class InterfaceReadUsersInClass extends JFrame{
 	public InterfaceReadUsersInClass (int id) {
 		idlist = id;
 		
-		setSize(900,700);
+		setSize(900,500);
 		setTitle("Listar usuários");
 		// Obtém o painel de conteúdo do JFrame
         Container contentPane = getContentPane();
         // Define a cor de fundo do painel de conteúdo
         contentPane.setBackground(new Color(242, 242, 242));
 		setLayout(null);
-		//setBackground(getColorModel(255,69,0));
 		setLocationRelativeTo(null);
 		componentesCriar();
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		
 	}
 	
     
@@ -55,13 +53,11 @@ public class InterfaceReadUsersInClass extends JFrame{
 		Border matteBorder = BorderFactory.createMatteBorder(borderWidth, borderWidth, borderWidth, borderWidth, borderColor);
 		Border titledBorder = BorderFactory.createTitledBorder(matteBorder, "Usuários");
 		
-    	JPanel painel5 = new JPanel();
+		JPanel painel5 = new JPanel();
 		painel5.setLayout(new BorderLayout());
-		Border titledBorder5 = BorderFactory.createTitledBorder(matteBorder, "Lista de usuários");
-		((TitledBorder) titledBorder5).setTitleColor(borderColor);
-		painel5.setBorder(titledBorder5);
-		((TitledBorder) titledBorder5).setTitleFont(fontelabels);
-		painel5.setBounds(20,270,845,300);
+		painel5.setBounds(20,60,845,385);
+		getContentPane().add(painel5);
+		
 		getContentPane().add(painel5);
     	
 		Banco banco = new Banco();
@@ -90,7 +86,7 @@ public class InterfaceReadUsersInClass extends JFrame{
 		voltar.setText("Voltar");
 		voltar.setHorizontalAlignment(SwingConstants.CENTER);
 		voltar.setFont(fontelabels);
-		voltar.setBounds(60, 250, 100, 25);
+		voltar.setBounds(20, 20, 100, 25);
 		voltar.setBackground(background);
 		voltar.setForeground( resultcolor );
 		Border customBorderButton = BorderFactory.createLineBorder(resultcolor, 2 );
@@ -107,6 +103,7 @@ public class InterfaceReadUsersInClass extends JFrame{
 				
 			}
 		});
+    
     }
 
     

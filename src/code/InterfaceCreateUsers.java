@@ -57,7 +57,7 @@ public class InterfaceCreateUsers extends JFrame {
 				users = uBanco.findUsers(conn, idupdate);
 		}
 		
-		setSize(900,700);
+		setSize(455,390);
 		setTitle("Inserir usuário ");
 		// Obtém o painel de conteúdo do JFrame
         Container contentPane = getContentPane();
@@ -92,10 +92,9 @@ public class InterfaceCreateUsers extends JFrame {
 		painel4.setBorder(titledBorder4);
 		((TitledBorder) titledBorder4).setTitleFont(fontelabels);
 		if (minhaVariavel == 1) {
-			painel4.setBounds(20,20,400,350);
+			painel4.setBounds(20,20,400,300);
 		} else if (minhaVariavel == 2) {
-			painel4.setBounds(20,20,400,400);
-
+			painel4.setBounds(20,20,400,300);
 		}
 		getContentPane().add(painel4);
 		
@@ -106,7 +105,7 @@ public class InterfaceCreateUsers extends JFrame {
 		lnameuser.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(lnameuser);
 		nameuser = new JTextArea();
-		nameuser.setBounds(80,40,250,25);
+		nameuser.setBounds(80,40,280,25);
 		painel4.add(nameuser);
 		
 		lcodeperson = new JLabel("Código:");
@@ -114,7 +113,7 @@ public class InterfaceCreateUsers extends JFrame {
 		lcodeperson.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(lcodeperson);
 		codeperson = new JTextArea();
-		codeperson.setBounds(80,75,250,25);
+		codeperson.setBounds(80,75,280,25);
 		painel4.add(codeperson);
 		
 		lemail = new JLabel("Email:");
@@ -122,7 +121,7 @@ public class InterfaceCreateUsers extends JFrame {
 		lemail.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(lemail);
 		email = new JTextArea();
-		email.setBounds(80,110,250,25);
+		email.setBounds(80,110,280,25);
 		painel4.add(email);
 		
 		lfone = new JLabel("Telefone:");
@@ -130,7 +129,7 @@ public class InterfaceCreateUsers extends JFrame {
 		lfone.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(lfone);
 		fone = new JTextArea();
-		fone.setBounds(80,145,250,25);
+		fone.setBounds(80,145,280,25);
 		painel4.add(fone);
 		
 		lcpf = new JLabel("CPF:");
@@ -138,7 +137,7 @@ public class InterfaceCreateUsers extends JFrame {
 		lcpf.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(lcpf);
 		cpf = new JTextArea();
-		cpf.setBounds(80,180,250,25);
+		cpf.setBounds(80,180,280,25);
 		painel4.add(cpf);
 		
 		lspace = new JLabel("Endereço:");
@@ -146,7 +145,7 @@ public class InterfaceCreateUsers extends JFrame {
 		lspace.setHorizontalAlignment(JLabel.RIGHT);
 		painel4.add(lspace);
 		space = new JTextArea();
-		space.setBounds(80,215,250,25);
+		space.setBounds(80,215,280,25);
 		painel4.add(space);
 		
 		caduser = new JButton();
@@ -157,7 +156,7 @@ public class InterfaceCreateUsers extends JFrame {
 		}
 		caduser.setHorizontalAlignment(SwingConstants.CENTER);
 		caduser.setFont(fontelabels);
-		caduser.setBounds(180, 250, 150, 25);
+		caduser.setBounds(200, 250, 150, 25);
 		caduser.setBackground(background);
 		caduser.setForeground( resultcolor );
 		Border customBorderButton = BorderFactory.createLineBorder(resultcolor, 2 );
@@ -225,7 +224,7 @@ public class InterfaceCreateUsers extends JFrame {
 		voltar.setText("Voltar");
 		voltar.setHorizontalAlignment(SwingConstants.CENTER);
 		voltar.setFont(fontelabels);
-		voltar.setBounds(60, 250, 100, 25);
+		voltar.setBounds(90, 250, 100, 25);
 		voltar.setBackground(background);
 		voltar.setForeground( resultcolor );
 		voltar.setBorder(customBorderButton);
