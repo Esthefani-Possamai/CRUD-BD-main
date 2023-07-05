@@ -37,12 +37,9 @@ public class InterfaceRead extends JFrame{
 		}else {
 			setTitle("Listar usuários de uma turma");
 		}
-		// Obtém o painel de conteúdo do JFrame
         Container contentPane = getContentPane();
-        // Define a cor de fundo do painel de conteúdo
         contentPane.setBackground(new Color(242, 242, 242));
 		setLayout(null);
-		//setBackground(getColorModel(255,69,0));
 		setLocationRelativeTo(null);
 		componentesCriar();
 		setVisible(true);
@@ -53,11 +50,11 @@ public class InterfaceRead extends JFrame{
     
     private void componentesCriar () {
     	Font fontetitle = new Font( "Poppins", Font.PLAIN, 16);
-		Color background = new Color (242, 242, 242); //Cor areia de fundo
+		Color background = new Color (242, 242, 242); 
 		Color resultcolor = new Color (191, 107, 33);
-    	Color borderColor = new Color (156, 185, 188); // Cor verde em RGB
+    	Color borderColor = new Color (156, 185, 188); 
     	Font fontelabels = new Font( "Poppins", Font.PLAIN, 14);
-    	int borderWidth = 2; // Espessura da borda em pixels
+    	int borderWidth = 2;
 		Border matteBorder = BorderFactory.createMatteBorder(borderWidth, borderWidth, borderWidth, borderWidth, borderColor);
 		
 		if (minhaVariavel == 1 || minhaVariavel == 3) {
@@ -117,8 +114,6 @@ public class InterfaceRead extends JFrame{
 			}
 	    	JScrollPane scrollPane = new JScrollPane(tabela);
 	    	painel5.add(scrollPane, BorderLayout.CENTER);
-		}else {
-			//PREPARAR A LISTAGEM DE USUÁRIOS POR TURMA AQUI
 		}
     	
     	voltar = new JButton();
@@ -138,13 +133,10 @@ public class InterfaceRead extends JFrame{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
-//				Interface interfaceObj = new Interface();
-				
 			}
 		});
     }
 
-    
 	public static void main(String[] args) {
 		 Interface InterfaceReadUsers = new Interface();
 

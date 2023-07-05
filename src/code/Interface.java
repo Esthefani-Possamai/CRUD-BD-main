@@ -55,12 +55,9 @@ public class Interface extends JFrame {
 		titletela = new JTextArea();
 		setSize(900,350);
 		setTitle("CRUD - Esthéfani, Gabriel Alves e Luís Felipe Ceron ");
-		// Obtém o painel de conteúdo do JFrame
         Container contentPane = getContentPane();
-        // Define a cor de fundo do painel de conteúdo
         contentPane.setBackground(new Color(242, 242, 242));
 		setLayout(null);
-		//setBackground(getColorModel(255,69,0));
 		setLocationRelativeTo(null);
 		componentesCriar();
 		setVisible(true);
@@ -71,11 +68,10 @@ public class Interface extends JFrame {
 		
 		Font fontetitle = new Font( "Poppins", Font.PLAIN, 16);
 		Font fontelabels = new Font( "Poppins", Font.PLAIN, 14);
-		Color borderColor = new Color (156, 185, 188); // Cor verde em RGB
-		Color background = new Color (242, 242, 242); //Cor areia de fundo
+		Color borderColor = new Color (156, 185, 188);
+		Color background = new Color (242, 242, 242); 
 		Color resultcolor = new Color (191, 107, 33);
 		
-		//Padrão da posição do primeiro label + textfield
 		Rectangle positionC = new Rectangle(35,30,180,30);
 		Rectangle positionR = new Rectangle(35,70,180,30);
 		Rectangle positionU = new Rectangle(35,110,180,30);
@@ -94,13 +90,10 @@ public class Interface extends JFrame {
 		getContentPane().add(titleAllTela);
 	
 			painel1 = new JPanel();
-			//dimensões
 			painel1.setLayout(null);
 			painel1.setBounds(20,50,250,200);
-			//estilização
 			painel1.setBackground(background);
-			//borda
-			int borderWidth = 2; // Espessura da borda em pixels
+			int borderWidth = 2; 
 			Border matteBorder = BorderFactory.createMatteBorder(borderWidth, borderWidth, borderWidth, borderWidth, borderColor);
 			Border titledBorder = BorderFactory.createTitledBorder(matteBorder, "Usuários");
 			((TitledBorder) titledBorder).setTitleColor(borderColor);
@@ -108,7 +101,6 @@ public class Interface extends JFrame {
 			((TitledBorder) titledBorder).setTitleFont(fontelabels);
 			painel1.setBorder(titledBorder);
 			getContentPane().add(painel1);
-			
 			
 			buttonC1 = new JButton();
 			buttonC1.setText("Criar usuário");
@@ -126,7 +118,6 @@ public class Interface extends JFrame {
 			buttonC1.addMouseListener(new MouseAdapter() {
 			    @Override
 			    public void mouseClicked(MouseEvent e) {
-//			    	 painel4.setVisible(true);
 			    	 InterfaceCreateUsers interfaceCreateUsers = new InterfaceCreateUsers(1, 0);
 				}
 			    
@@ -182,8 +173,7 @@ public class Interface extends JFrame {
 			    	    try {
 			    	        iduserupdate = Integer.parseInt(input);
 			    	        System.out.println(iduserupdate);
-			    	        // iduserupdate é o id do usuário que será atualizado - fazer verificação se o id realmente existe
-			    	        InterfaceCreateUsers interfaceCreateUsers = new InterfaceCreateUsers(2, iduserupdate );
+			    	       	InterfaceCreateUsers interfaceCreateUsers = new InterfaceCreateUsers(2, iduserupdate );
 			    	        
 						    
 			    	    } catch (NumberFormatException el) {
@@ -242,8 +232,6 @@ public class Interface extends JFrame {
 			});
 			
 			
-			//------------------------------------------------------------------------------
-			
 			painel2 = new JPanel();
 			painel2.setLayout(null);
 			painel2.setBounds(290,50,250,200);
@@ -255,7 +243,6 @@ public class Interface extends JFrame {
 			painel2.setBorder(titledBorder2);
 			getContentPane().add(painel2);
 				
-			
 			buttonC2 = new JButton();
 			buttonC2.setText("Criar disciplina");
 			buttonC2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -324,15 +311,11 @@ public class Interface extends JFrame {
 			    	if (input != null && !input.isEmpty()) {
 			    	    try {
 			    	        iduserupdate = Integer.parseInt(input);
-			    	        // iduserupdate é o id do usuário que será atualizado - fazer verificação se o id realmente existe
-			    	       
 			    	        InterfaceCreateSubjects interfaceCreateSubjects = new InterfaceCreateSubjects(2,iduserupdate);
 			    	    } catch (NumberFormatException el) {
 			    	        JOptionPane.showInternalMessageDialog(null, "O valor inserido é inválido. É necessário fornecer um número inteiro.");
 			    	    }
 			    	} 
-
-                   
 				}
 			    
 			    @Override
@@ -378,8 +361,7 @@ public class Interface extends JFrame {
 			        buttonD2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			    }
 			});
-			
-		//-------------------------------------------------
+
 			painel3 = new JPanel();
 			painel3.setLayout(null);
 			painel3.setBounds(560,50,304,200);
@@ -391,7 +373,6 @@ public class Interface extends JFrame {
 			painel3.setBorder(titledBorder3);
 			getContentPane().add(painel3);
 				
-			
 			buttonC3 = new JButton();
 			buttonC3.setText("Adicionar usuário a uma turma");
 			buttonC3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -513,14 +494,8 @@ public class Interface extends JFrame {
 			        buttonU3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 			    }
 			});
-			
-			
-				
-				
-				
 	}
 	
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		 Interface interfaceObj = new Interface();

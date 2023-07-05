@@ -59,19 +59,15 @@ public class InterfaceCreateSubjects extends JFrame{
 			setTitle("Inserir disciplina ");
 		} else if (minhaVariavel == 2){
 			setTitle("Atualizar disciplina");
-			//PARA ATUALIZAR USUÁRIO
 			 Banco banco = new Banco();
 			Connection conn = banco.getConexao();
 			SubjectsBanco sBanco = new SubjectsBanco();
 			subjects = sBanco.findSubjects(conn, code);
 
 		}
-		// Obtém o painel de conteúdo do JFrame
         Container contentPane = getContentPane();
-        // Define a cor de fundo do painel de conteúdo
         contentPane.setBackground(new Color(242, 242, 242));
 		setLayout(null);
-		//setBackground(getColorModel(255,69,0));
 		setLocationRelativeTo(null);
 		componentesCriar();
 		setVisible(true);
@@ -81,13 +77,13 @@ public class InterfaceCreateSubjects extends JFrame{
 	private void componentesCriar () {
 		Font fontetitle = new Font( "Poppins", Font.PLAIN, 16);
 		Font fontelabels = new Font( "Poppins", Font.PLAIN, 14);
-		Color borderColor = new Color (156, 185, 188); // Cor verde em RGB
-		Color background = new Color (242, 242, 242); //Cor areia de fundo
+		Color borderColor = new Color (156, 185, 188); 
+		Color background = new Color (242, 242, 242); 
 		Color resultcolor = new Color (191, 107, 33);
 		
 		painel4 = new JPanel();
 		painel4.setLayout(null);
-		int borderWidth = 2; // Espessura da borda em pixels
+		int borderWidth = 2; 
 		Border matteBorder = BorderFactory.createMatteBorder(borderWidth, borderWidth, borderWidth, borderWidth, borderColor);
 		
 		if (minhaVariavel == 1) {
@@ -197,7 +193,6 @@ public class InterfaceCreateSubjects extends JFrame{
 		cadsubject.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//Nenhum campo pode estar vazio para atualizar ou criar um usuário
 				String name = namesubject.getText();
 				int cod_subject = Integer.parseInt(codesubject.getText());
 				String descripition = description.getText();
@@ -207,7 +202,6 @@ public class InterfaceCreateSubjects extends JFrame{
 				int  grade_to_aprove_id =  Integer.parseInt(gradetoaproveid.getText());
 				
 					if (minhaVariavel == 1) {
-						//PARA ADICIONAR NOVA DISCIPLINA
 						Banco banco = new Banco();
 						Connection conn = banco.getConexao();
 						SubjectsBanco sBanco = new SubjectsBanco();
@@ -223,7 +217,6 @@ public class InterfaceCreateSubjects extends JFrame{
 						sBanco.insereSubjects(conn, subjects);
 						
 					} else if (minhaVariavel == 2) {
-						//PARA ATUALIZAR DISCIPLINA
 						Banco banco = new Banco();
 						Connection conn = banco.getConexao();
 						SubjectsBanco sBanco = new SubjectsBanco();

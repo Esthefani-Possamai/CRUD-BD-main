@@ -50,7 +50,6 @@ public class InterfaceCreateUsers extends JFrame {
 		minhaVariavel = valor;
 		idupdate = idupdate;
 		if (minhaVariavel == 2) {
-			//PARA ATUALIZAR USUÁRIO
 			 Banco banco = new Banco();
 				Connection conn = banco.getConexao();
 				UsersBanco uBanco = new UsersBanco();
@@ -59,12 +58,9 @@ public class InterfaceCreateUsers extends JFrame {
 		
 		setSize(455,390);
 		setTitle("Inserir usuário ");
-		// Obtém o painel de conteúdo do JFrame
         Container contentPane = getContentPane();
-        // Define a cor de fundo do painel de conteúdo
         contentPane.setBackground(new Color(242, 242, 242));
 		setLayout(null);
-		//setBackground(getColorModel(255,69,0));
 		setLocationRelativeTo(null);
 		componentesCriar();
 		setVisible(true);
@@ -77,13 +73,13 @@ public class InterfaceCreateUsers extends JFrame {
 		
 		Font fontetitle = new Font( "Poppins", Font.PLAIN, 16);
 		Font fontelabels = new Font( "Poppins", Font.PLAIN, 14);
-		Color borderColor = new Color (156, 185, 188); // Cor verde em RGB
-		Color background = new Color (242, 242, 242); //Cor areia de fundo
+		Color borderColor = new Color (156, 185, 188); 
+		Color background = new Color (242, 242, 242);
 		Color resultcolor = new Color (191, 107, 33);
 		
 		painel4 = new JPanel();
 		painel4.setLayout(null);
-		int borderWidth = 2; // Espessura da borda em pixels
+		int borderWidth = 2; 
 		Border matteBorder = BorderFactory.createMatteBorder(borderWidth, borderWidth, borderWidth, borderWidth, borderColor);
 		Border titledBorder = BorderFactory.createTitledBorder(matteBorder, "Usuários");
 		((TitledBorder) titledBorder).setTitleColor(borderColor);
@@ -177,7 +173,6 @@ public class InterfaceCreateUsers extends JFrame {
 		caduser.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				//Nenhum campo pode estar vazio para atualizar ou criar um usuário
 				if (nameuser.getText() != "" && codeperson.getText() != "" && email.getText() != "" && fone.getText() != "" && cpf.getText() != ""  && space.getText() != "") {
 					String name = nameuser.getText();
 					int code = Integer.parseInt(codeperson.getText());
@@ -187,7 +182,6 @@ public class InterfaceCreateUsers extends JFrame {
 					int idspace = Integer.parseInt(space.getText());
 					
 					if (minhaVariavel == 1) {
-						//PARA ADICIONAR NOVO USUÁRIO
 						Banco banco = new Banco();
 						Connection conn = banco.getConexao();
 						UsersBanco uBanco = new UsersBanco();

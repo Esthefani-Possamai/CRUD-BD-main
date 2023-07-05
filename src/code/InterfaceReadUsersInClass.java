@@ -31,9 +31,7 @@ public class InterfaceReadUsersInClass extends JFrame{
 		
 		setSize(900,500);
 		setTitle("Listar usuários");
-		// Obtém o painel de conteúdo do JFrame
         Container contentPane = getContentPane();
-        // Define a cor de fundo do painel de conteúdo
         contentPane.setBackground(new Color(242, 242, 242));
 		setLayout(null);
 		setLocationRelativeTo(null);
@@ -45,11 +43,11 @@ public class InterfaceReadUsersInClass extends JFrame{
     
     private void componentesCriar () {
     	Font fontetitle = new Font( "Poppins", Font.PLAIN, 16);
-		Color background = new Color (242, 242, 242); //Cor areia de fundo
+		Color background = new Color (242, 242, 242); 
 		Color resultcolor = new Color (191, 107, 33);
-    	Color borderColor = new Color (156, 185, 188); // Cor verde em RGB
+    	Color borderColor = new Color (156, 185, 188); 
     	Font fontelabels = new Font( "Poppins", Font.PLAIN, 14);
-    	int borderWidth = 2; // Espessura da borda em pixels
+    	int borderWidth = 2; 
 		Border matteBorder = BorderFactory.createMatteBorder(borderWidth, borderWidth, borderWidth, borderWidth, borderColor);
 		Border titledBorder = BorderFactory.createTitledBorder(matteBorder, "Usuários");
 		
@@ -99,11 +97,8 @@ public class InterfaceReadUsersInClass extends JFrame{
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				setVisible(false);
-//				Interface interfaceObj = new Interface();
-				
 			}
 		});
-    
     }
 
     
